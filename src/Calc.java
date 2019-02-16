@@ -22,12 +22,16 @@ public class Calc {
 		do {System.out.printf("Enter a %s number: ", whatNumber);
 			 if(sc.hasNextInt()) { // возвращает истинну если с потока ввода можно считать целое число
 				 int enteredNumber =  sc.nextInt(); // считывает целое число с потока ввода и сохраняем в переменную
-				 return enteredNumber;
+				 if (whatNumber.equals("second") && isEnteredRoman) {
+	        		System.out.println("Увага! Неможливо проводити математичні операції з арабським числом та римським одночасно . Введіть римське число !!!");
+				 } else {
+					return enteredNumber;
+				 }
 		     }else {
 	        	String enteredString =  sc.next();
 	        	if (isRomanNumeral(enteredString)) {
 	        		if (whatNumber.equals("second") && !isEnteredRoman) {
-	        			System.out.println("Увага! Неможливо проводити математичні операції арабським числом та римським одночасно . Введіть арабське число !!!");
+	        			System.out.println("Увага! Неможливо проводити математичні операції з арабським числом та римським одночасно . Введіть арабське число !!!");
 					} else {
 	        		isEnteredRoman= true;
 					return convertRomanNumeralsToArabic(enteredString);
